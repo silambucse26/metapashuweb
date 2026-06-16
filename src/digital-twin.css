@@ -162,17 +162,6 @@ button { border: none; background: none; cursor: pointer; color: inherit; font-f
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    position: fixed; top: 0; right: -100%;
-    width: 280px; height: 100vh;
-    flex-direction: column;
-    background: var(--bg-card);
-    backdrop-filter: blur(20px);
-    padding: 100px 32px 32px; gap: 4px;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
-  }
-  .nav-links.open { right: 0; }
   .nav-cta { display: none; }
   .nav-toggle { display: flex; }
 }
