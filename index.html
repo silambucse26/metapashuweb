@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaPashu – AI Digital Twin for Cattle and Dairy Farms</title>
+  <meta name="description" content="MetaPashu is an AI-powered digital twin platform for cattle and dairy farms. Monitor cattle health, milk production, fertility, vaccination, disease history, and genomic strength through one intelligent interface." />
+  <meta name="keywords" content="MetaPashu, AI, Digital Twin, Cattle, Dairy Farm, NIRAMM, Animal Health, Milk Intelligence" />
+  <meta name="author" content="MetaPashu" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- ═══════════════════ CATTLE SCROLLBAR ═══════════════════ -->
+  <div class="cattle-scrollbar" id="cattle-scrollbar">
+    <div class="cs-track"></div>
+    <img src="/cattle-side.png" alt="" id="cattle-scroll-img" />
+  </div>
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo" id="nav-logo">
+        <img src="/logo.png" alt="MetaPashu Logo" class="logo-img" />
+        <span class="logo-text">Meta<span class="logo-highlight">Pashu</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#home" class="nav-link active">Home</a></li>
+        <li><a href="/digital-twin.html" class="nav-link">Digital Twin</a></li>
+        <li><a href="/niramm.html" class="nav-link">NIRAMM AI</a></li>
+        <li><a href="/#features" class="nav-link">Features</a></li>
+        <li><a href="/#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="/#cta-final" class="nav-cta" id="nav-cta">Create Farm Twin</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline class="hero-video" id="hero-video">
+        <source src="/AI_digital_twin_cow_scanned_202606161305.mp4" type="video/mp4" />
+      </video>
+      <canvas id="hero-canvas" class="hero-canvas"></canvas>
+      <div class="hero-overlay"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge fade-up">
+        <span class="badge-dot"></span>
+        AI-Powered Platform
+      </div>
+      <h1 class="hero-title fade-up delay-1">
+        MetaPashu AI Digital Twin<br />
+        <span class="hero-title-accent">for Cattle and Dairy Farms</span>
+      </h1>
+      <p class="hero-subtitle fade-up delay-2">
+        Monitor cattle health, milk production, fertility, vaccination, disease history, and genomic strength through one intelligent interface.
+      </p>
+      <div class="hero-buttons fade-up delay-3">
+        <a href="/digital-twin.html" class="btn btn-primary" id="btn-explore">
+          <span>Explore Digital Twin</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn btn-secondary" id="btn-demo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Watch Demo</span>
+        </a>
+      </div>
+      <div class="hero-stats fade-up delay-4">
+        <div class="stat">
+          <span class="stat-number" data-count="10000">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Cattle Monitored</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="500">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Farms Connected</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-count="99">0</span><span class="stat-percent">%</span>
+          <span class="stat-label">Accuracy</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ INTRO ═══════════════════ -->
+  <section id="digital-twin" class="intro-section">
+    <div class="floating-cattle" id="cattle-float-1">
+      <img src="/cattle-side.png" alt="" class="cattle-img cattle-1" />
+    </div>
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-visual fade-up">
+          <div class="intro-card glass-card">
+            <div class="twin-orb">
+              <div class="orb-ring ring-1"></div>
+              <div class="orb-ring ring-2"></div>
+              <div class="orb-ring ring-3"></div>
+              <div class="orb-core">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+            </div>
+            <div class="intro-metrics">
+              <div class="metric-pill"><span class="pill-dot green"></span>Health: Optimal</div>
+              <div class="metric-pill"><span class="pill-dot gold"></span>Milk: 22L/day</div>
+              <div class="metric-pill"><span class="pill-dot aqua"></span>Fertility: Active</div>
+            </div>
+          </div>
+        </div>
+        <div class="intro-text">
+          <span class="section-tag fade-up">About MetaPashu</span>
+          <h2 class="section-title fade-up">
+            The Future of<br /><span class="text-gradient">Cattle Intelligence</span>
+          </h2>
+          <p class="section-desc fade-up">
+            MetaPashu is an AI-powered digital twin platform for cattle and dairy farms. It helps farmers and veterinarians understand animal health, milk performance, fertility, disease history, vaccination status, and genomic strength in one simple intelligent interface.
+          </p>
+          <div class="intro-highlights fade-up">
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div>
+                <strong>Real-time Monitoring</strong>
+                <p>Track every health metric in real time</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <strong>Predictive Analytics</strong>
+                <p>AI-driven insights before problems arise</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <strong>Genomic Intelligence</strong>
+                <p>Unlock genetic potential of every animal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CATTLE SCROLL TRANSITION ═══════════════════ -->
+  <section class="cattle-transition" id="cattle-transition">
+    <div class="cattle-scroll-element" id="cattle-runner">
+      <img src="/cattle-side.png" alt="" class="cattle-run-img" />
+    </div>
+    <div class="cattle-scroll-element cattle-glider" id="cattle-glider">
+      <img src="/cattle-side.png" alt="" class="cattle-glide-img" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════ NIRAMM AI ═══════════════════ -->
+  <section id="niramm" class="niramm-section">
+    <div class="container">
+      <span class="section-tag fade-up">Intelligence Engine</span>
+      <h2 class="section-title text-center fade-up">
+        <span class="text-gradient">NIRAMM AI</span> Data Flow
+      </h2>
+      <p class="section-desc text-center fade-up">
+        Our neural intelligence engine processes multi-dimensional data to deliver actionable insights for every animal.
+      </p>
+      <div class="niramm-flow fade-up">
+        <!-- Inputs -->
+        <div class="flow-column flow-inputs">
+          <h3 class="flow-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Inputs
+          </h3>
+          <div class="flow-card glass-card" data-delay="0"><span class="flow-dot in"></span>Milk Data</div>
+          <div class="flow-card glass-card" data-delay="1"><span class="flow-dot in"></span>Feed Data</div>
+          <div class="flow-card glass-card" data-delay="2"><span class="flow-dot in"></span>Water Quality</div>
+          <div class="flow-card glass-card" data-delay="3"><span class="flow-dot in"></span>Air Quality</div>
+          <div class="flow-card glass-card" data-delay="4"><span class="flow-dot in"></span>Weather</div>
+          <div class="flow-card glass-card" data-delay="5"><span class="flow-dot in"></span>Breeding History</div>
+          <div class="flow-card glass-card" data-delay="6"><span class="flow-dot in"></span>Vaccination History</div>
+          <div class="flow-card glass-card" data-delay="7"><span class="flow-dot in"></span>Disease History</div>
+          <div class="flow-card glass-card" data-delay="8"><span class="flow-dot in"></span>Genomic Data</div>
+        </div>
+        <!-- Center -->
+        <div class="flow-center">
+          <div class="flow-lines flow-lines-left">
+            <svg viewBox="0 0 100 400" preserveAspectRatio="none">
+              <path class="flow-line-path" d="M0,20 Q50,20 100,200" />
+              <path class="flow-line-path" d="M0,60 Q50,60 100,200" />
+              <path class="flow-line-path" d="M0,100 Q50,100 100,200" />
+              <path class="flow-line-path" d="M0,140 Q50,140 100,200" />
+              <path class="flow-line-path" d="M0,180 Q50,180 100,200" />
+              <path class="flow-line-path" d="M0,220 Q50,220 100,200" />
+              <path class="flow-line-path" d="M0,260 Q50,260 100,200" />
+              <path class="flow-line-path" d="M0,300 Q50,300 100,200" />
+              <path class="flow-line-path" d="M0,340 Q50,340 100,200" />
+            </svg>
+          </div>
+          <div class="niramm-core">
+            <div class="core-pulse"></div>
+            <div class="core-pulse pulse-2"></div>
+            <div class="core-inner">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/>
+                <path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/>
+                <path d="M8.56 6A4 4 0 0 0 5 10c0 1.95 1.4 3.58 3.25 3.93"/>
+                <path d="M15.44 6A4 4 0 0 1 19 10c0 1.95-1.4 3.58-3.25 3.93"/>
+              </svg>
+              <span class="core-label">NIRAMM AI</span>
+            </div>
+          </div>
+          <div class="flow-lines flow-lines-right">
+            <svg viewBox="0 0 100 400" preserveAspectRatio="none">
+              <path class="flow-line-path" d="M0,200 Q50,40 100,40" />
+              <path class="flow-line-path" d="M0,200 Q50,120 100,120" />
+              <path class="flow-line-path" d="M0,200 Q50,200 100,200" />
+              <path class="flow-line-path" d="M0,200 Q50,280 100,280" />
+              <path class="flow-line-path" d="M0,200 Q50,360 100,360" />
+            </svg>
+          </div>
+        </div>
+        <!-- Outputs -->
+        <div class="flow-column flow-outputs">
+          <h3 class="flow-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Outputs
+          </h3>
+          <div class="flow-card glass-card out" data-delay="0"><span class="flow-dot out"></span>Milk Insights</div>
+          <div class="flow-card glass-card out" data-delay="1"><span class="flow-dot out"></span>Disease Alerts</div>
+          <div class="flow-card glass-card out" data-delay="2"><span class="flow-dot out"></span>Fertility Insights</div>
+          <div class="flow-card glass-card out" data-delay="3"><span class="flow-dot out"></span>Breeding Suggestions</div>
+          <div class="flow-card glass-card out" data-delay="4"><span class="flow-dot out"></span>Productivity Prediction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FEATURES ═══════════════════ -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <span class="section-tag fade-up">Capabilities</span>
+      <h2 class="section-title text-center fade-up">
+        Powerful <span class="text-gradient">Features</span>
+      </h2>
+      <p class="section-desc text-center fade-up">
+        Everything you need to transform your farm into a smart, data-driven operation.
+      </p>
+      <div class="features-grid">
+        <div class="feature-card glass-card fade-up" id="feature-1">
+          <div class="feature-icon icon-emerald">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>AI Cattle Digital Twin</h3>
+          <p>Create a virtual replica of each animal with real-time data synchronization and predictive modeling.</p>
+          <span class="feature-tag">Core</span>
+        </div>
+        <div class="feature-card glass-card fade-up" id="feature-2">
+          <div class="feature-icon icon-red">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>Health Monitoring</h3>
+          <p>Continuous health tracking with automated anomaly detection and early warning alerts.</p>
+          <span class="feature-tag">Monitoring</span>
+        </div>
+        <div class="feature-card glass-card fade-up" id="feature-3">
+          <div class="feature-icon icon-gold">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Milk Intelligence</h3>
+          <p>Analyze milk yield, quality parameters, and production trends with AI-powered forecasting.</p>
+          <span class="feature-tag">Analytics</span>
+        </div>
+        <div class="feature-card glass-card fade-up" id="feature-4">
+          <div class="feature-icon icon-pink">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Fertility Tracking</h3>
+          <p>Monitor reproductive cycles, predict optimal breeding windows, and track pregnancy progress.</p>
+          <span class="feature-tag">Breeding</span>
+        </div>
+        <div class="feature-card glass-card fade-up" id="feature-5">
+          <div class="feature-icon icon-blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Vaccination & Disease History</h3>
+          <p>Complete medical records with vaccination schedules and disease history tracking.</p>
+          <span class="feature-tag">Records</span>
+        </div>
+        <div class="feature-card glass-card fade-up" id="feature-6">
+          <div class="feature-icon icon-purple">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.17-6.83l-2.83 2.83m-4 4l-2.83 2.83m0-9.66l2.83 2.83m4 4l2.83 2.83"/>
+            </svg>
+          </div>
+          <h3>Genomic Intelligence</h3>
+          <p>Leverage genetic data for smarter breeding decisions and trait optimization.</p>
+          <span class="feature-tag">Genetics</span>
+        </div>
+        <div class="feature-card glass-card feature-card-wide fade-up" id="feature-7">
+          <div class="feature-icon icon-aqua">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/>
+              <path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/>
+              <path d="M8.56 6A4 4 0 0 0 5 10c0 1.95 1.4 3.58 3.25 3.93"/>
+              <path d="M15.44 6A4 4 0 0 1 19 10c0 1.95-1.4 3.58-3.25 3.93"/>
+            </svg>
+          </div>
+          <h3>NIRAMM AI Analysis</h3>
+          <p>Advanced neural engine combining milk, health, fertility, weather, and genomic data into a unified intelligence layer for comprehensive farm decision-making.</p>
+          <span class="feature-tag">AI Engine</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+  <section id="cta-final" class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-orb orb-1"></div>
+      <div class="cta-orb orb-2"></div>
+      <div class="cta-orb orb-3"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content fade-up">
+        <span class="section-tag">Get Started</span>
+        <h2 class="cta-title">
+          Turn every cattle into an<br />
+          <span class="text-gradient">intelligent digital twin.</span>
+        </h2>
+        <p class="cta-desc">
+          Join hundreds of farms already transforming their operations with MetaPashu AI. Start your journey toward smarter, data-driven livestock management today.
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-primary btn-lg" id="cta-create">
+            <span>Create Your Farm Twin</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="btn btn-outline btn-lg" id="cta-contact">
+            <span>Contact Sales</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <img src="/logo.png" alt="MetaPashu Logo" class="logo-img" />
+            <span class="logo-text">Meta<span class="logo-highlight">Pashu</span></span>
+          </a>
+          <p>AI-powered digital twin platform for cattle and dairy farms. Transforming livestock management through intelligent technology.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="/digital-twin.html">Digital Twin</a></li>
+            <li><a href="/niramm.html">NIRAMM AI</a></li>
+            <li><a href="#">Farm Analytics</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MetaPashu. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

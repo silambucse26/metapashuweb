@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Twin – MetaPashu AI Cattle Intelligence</title>
+  <meta name="description" content="View and interact with AI-powered cattle digital twins. Monitor health, milk production, fertility, and genomic data in real time." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/digital-twin.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo" id="nav-logo">
+        <img src="/logo.png" alt="MetaPashu Logo" class="logo-img" />
+        <span class="logo-text">Meta<span class="logo-highlight">Pashu</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#home" class="nav-link">Home</a></li>
+        <li><a href="/digital-twin.html" class="nav-link active">Digital Twin</a></li>
+        <li><a href="/niramm.html" class="nav-link">NIRAMM AI</a></li>
+        <li><a href="/#features" class="nav-link">Features</a></li>
+        <li><a href="/#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="/#cta-final" class="nav-cta" id="nav-cta">Create Farm Twin</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════ MAIN INTERFACE ══════ -->
+  <main class="dt-main">
+
+    <!-- ── LEFT PANEL: Cattle List ── -->
+    <aside class="dt-panel dt-left-panel" id="left-panel">
+      <div class="dt-panel-header">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Cattle List
+        </h3>
+        <span class="dt-count">5 Animals</span>
+      </div>
+      <div class="dt-cattle-list" id="cattle-list">
+        <!-- Populated by JS -->
+      </div>
+    </aside>
+
+    <!-- ── CENTER: 3D Viewer ── -->
+    <section class="dt-viewer-section" id="viewer-section">
+      <!-- Navigation Arrows -->
+      <button class="dt-arrow dt-arrow-left" id="arrow-left" aria-label="Previous cattle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="dt-arrow dt-arrow-right" id="arrow-right" aria-label="Next cattle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <!-- Cattle Name Header -->
+      <div class="dt-viewer-header" id="viewer-header">
+        <h2 class="dt-cattle-name" id="cattle-name">Gauri</h2>
+        <span class="dt-cattle-id" id="cattle-id-top">MP-GIR-001</span>
+      </div>
+
+      <!-- 3D Viewer Container -->
+      <div class="dt-viewer-container" id="viewer-container">
+        <canvas id="viewer-particles" class="dt-viewer-particles"></canvas>
+        <!-- Floor ring -->
+        <div class="dt-floor-ring">
+          <div class="dt-floor-ring-inner"></div>
+          <div class="dt-floor-glow"></div>
+        </div>
+        <!-- Cattle image -->
+        <div class="dt-cattle-3d" id="cattle-3d">
+          <img src="/cattle-realistic-3d.png" alt="Digital Twin" class="dt-cattle-img" id="cattle-3d-img" />
+        </div>
+        <!-- Body markers -->
+        <div class="dt-markers" id="markers">
+          <div class="dt-marker" data-label="Body Condition" style="top:22%;left:48%">
+            <span class="dt-marker-dot"></span>
+            <span class="dt-marker-line"></span>
+            <span class="dt-marker-label">Body Condition</span>
+          </div>
+          <div class="dt-marker" data-label="Heart & Vitals" style="top:35%;left:35%">
+            <span class="dt-marker-dot"></span>
+            <span class="dt-marker-line"></span>
+            <span class="dt-marker-label">Heart & Vitals</span>
+          </div>
+          <div class="dt-marker" data-label="Udder Health" style="top:70%;left:42%">
+            <span class="dt-marker-dot"></span>
+            <span class="dt-marker-line"></span>
+            <span class="dt-marker-label">Udder Health</span>
+          </div>
+          <div class="dt-marker" data-label="Milk Production" style="top:65%;left:55%">
+            <span class="dt-marker-dot"></span>
+            <span class="dt-marker-line"></span>
+            <span class="dt-marker-label">Milk Production</span>
+          </div>
+          <div class="dt-marker" data-label="Fertility" style="top:55%;left:65%">
+            <span class="dt-marker-dot"></span>
+            <span class="dt-marker-line"></span>
+            <span class="dt-marker-label">Fertility / Heat</span>
+          </div>
+          <div class="dt-marker" data-label="Genomic Strength" style="top:28%;left:62%">
+            <span class="dt-marker-dot"></span>
+            <span class="dt-marker-line"></span>
+            <span class="dt-marker-label">Genomic Strength</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Viewer Footer -->
+      <div class="dt-viewer-footer">
+        <span class="dt-rotate-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          Interactive View
+        </span>
+        <span class="dt-rotate-hint">Drag to inspect</span>
+      </div>
+    </section>
+
+    <!-- ── RIGHT PANEL: Details ── -->
+    <aside class="dt-panel dt-right-panel" id="right-panel">
+      <div class="dt-panel-header">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Details
+        </h3>
+        <span class="dt-status-badge" id="status-badge">Excellent</span>
+      </div>
+      <div class="dt-details" id="details-content">
+        <!-- Populated by JS -->
+      </div>
+    </aside>
+  </main>
+
+  <!-- ══════ INSIGHTS SECTION ══════ -->
+  <section class="dt-insights" id="insights">
+    <div class="dt-insights-grid">
+      
+      <!-- Card 1: Cattle Profile -->
+      <div class="dt-insight-card profile-card">
+        <h3 class="dt-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Cattle Profile</h3>
+        <div class="dt-profile-content">
+          <img src="" alt="Profile" class="dt-profile-img" id="ip-thumb" />
+          <div class="dt-profile-info">
+            <h4 id="ip-name">--</h4>
+            <span class="dt-profile-id" id="ip-id">--</span>
+            <div class="dt-profile-tags">
+              <span class="dt-tag" id="ip-breed">--</span>
+              <span class="dt-tag" id="ip-age">--</span>
+              <span class="dt-tag" id="ip-gender">--</span>
+            </div>
+          </div>
+        </div>
+        <div class="dt-profile-grid">
+          <div class="dt-pg-item"><span class="dt-pg-label">Lactation</span><span class="dt-pg-value" id="ip-lactation">--</span></div>
+          <div class="dt-pg-item"><span class="dt-pg-label">Calved</span><span class="dt-pg-value" id="ip-calving">--</span></div>
+          <div class="dt-pg-item"><span class="dt-pg-label">Owner</span><span class="dt-pg-value" id="ip-owner">--</span></div>
+          <div class="dt-pg-item"><span class="dt-pg-label">Farm</span><span class="dt-pg-value" id="ip-farm">--</span></div>
+          <div class="dt-pg-item"><span class="dt-pg-label">Trust Score</span><span class="dt-pg-value green" id="ip-trust">--</span></div>
+        </div>
+      </div>
+
+      <!-- Card 2: NIRAMM AI Intelligence -->
+      <div class="dt-insight-card niramm-card">
+        <div class="dt-card-header-split">
+          <h3 class="dt-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> NIRAMM AI Intelligence</h3>
+          <span class="dt-ai-badge">Active Analysis</span>
+        </div>
+        <p class="dt-card-note">NIRAMM AI connects milk, feed, water, air, weather, breeding, disease, vaccination, and genomic data for this cattle.</p>
+        
+        <div class="dt-niramm-grid">
+          <div class="dt-n-box"><h5>Yield Today</h5><span class="dt-n-val" id="in-yield">--</span></div>
+          <div class="dt-n-box"><h5>7-Day Avg</h5><span class="dt-n-val" id="in-avg">--</span></div>
+          <div class="dt-n-box"><h5>Fat %</h5><span class="dt-n-val" id="in-fat">--</span></div>
+          <div class="dt-n-box"><h5>SNF %</h5><span class="dt-n-val" id="in-snf">--</span></div>
+          <div class="dt-n-box"><h5>Protein %</h5><span class="dt-n-val" id="in-protein">--</span></div>
+          <div class="dt-n-box"><h5>SCC</h5><span class="dt-n-val" id="in-scc">--</span></div>
+        </div>
+        
+        <div class="dt-niramm-status-grid">
+          <div class="dt-ns-row"><span>Milk Quality</span><span class="dt-ns-badge" id="in-quality">--</span></div>
+          <div class="dt-ns-row"><span>Mastitis Risk</span><span class="dt-ns-badge" id="in-mastitis">--</span></div>
+          <div class="dt-ns-row"><span>Ketosis Risk</span><span class="dt-ns-badge" id="in-ketosis">--</span></div>
+          <div class="dt-ns-row"><span>Fertility Risk</span><span class="dt-ns-badge" id="in-fertility">--</span></div>
+          <div class="dt-ns-row"><span>Heat Stress</span><span class="dt-ns-badge" id="in-heat">--</span></div>
+          <div class="dt-ns-row"><span>Feed Quality</span><span class="dt-ns-badge" id="in-feed">--</span></div>
+        </div>
+      </div>
+
+      <!-- Card 3: Quadmastest Udder Health -->
+      <div class="dt-insight-card quad-card">
+        <h3 class="dt-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Quadmastest Udder Health</h3>
+        
+        <div class="dt-quad-top">
+          <div class="dt-quad-score">
+            <span class="dt-qs-val" id="iq-score">--</span>
+            <span class="dt-qs-lbl">Health</span>
+          </div>
+          <div class="dt-quad-meta">
+            <div class="dt-qm-row"><span>Last Test:</span><span id="iq-date">--</span></div>
+            <div class="dt-qm-row"><span>SCC Est:</span><span id="iq-scc">--</span></div>
+            <div class="dt-qm-row"><span>Risk:</span><span id="iq-risk">--</span></div>
+          </div>
+        </div>
+
+        <div class="dt-udder-diagram">
+          <div class="dt-udder-q" id="iq-lf">LF</div>
+          <div class="dt-udder-q" id="iq-rf">RF</div>
+          <div class="dt-udder-q" id="iq-lr">LR</div>
+          <div class="dt-udder-q" id="iq-rr">RR</div>
+        </div>
+
+        <div class="dt-quad-rec">
+          <strong>Recommendation:</strong> <span id="iq-rec">--</span><br/>
+          <span class="dt-quad-due">Next due: <span id="iq-due">--</span></span>
+        </div>
+      </div>
+
+      <!-- Card 4: Vet Verified -->
+      <div class="dt-insight-card vet-card">
+        <h3 class="dt-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Vet Verified</h3>
+        <div class="dt-vet-seal">
+          <div class="dt-vet-seal-icon">✓</div>
+          <div class="dt-vet-seal-text" id="iv-status">--</div>
+        </div>
+        <p class="dt-vet-summary" id="iv-summary">--</p>
+        <div class="dt-vet-footer">
+          <div class="dt-vet-sig">
+            <span class="dt-vet-name" id="iv-name">--</span>
+            <span class="dt-vet-qual" id="iv-qual">--</span>
+          </div>
+          <span class="dt-vet-date" id="iv-date">--</span>
+        </div>
+      </div>
+
+      <!-- Card 5: AI Recommendation -->
+      <div class="dt-insight-card ai-rec-card">
+        <div class="dt-card-header-split">
+          <h3 class="dt-card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> MetaPashu AI Recommendation</h3>
+          <span class="dt-rec-badge">Insight</span>
+        </div>
+        <p class="dt-rec-text" id="ir-text">--</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════ ANALYTICS DASHBOARD ══════ -->
+  <section class="dt-analytics" id="analytics">
+    <div class="dt-analytics-header">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Analytics Dashboard
+      </h2>
+      <span class="dt-analytics-subtitle" id="analytics-name">Gauri — MP-GIR-001</span>
+    </div>
+    <div class="dt-analytics-grid" id="analytics-grid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <script type="module" src="/src/digital-twin.js"></script>
+</body>
+</html>
