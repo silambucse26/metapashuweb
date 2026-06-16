@@ -907,3 +907,22 @@ document.body.style.transition = 'opacity 0.5s ease';
 requestAnimationFrame(() => {
   document.body.style.opacity = '1';
 });
+
+// ──── Mobile Navbar Toggle ────
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  const mobileLinks = navLinks.querySelectorAll('.nav-link');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+}
